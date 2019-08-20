@@ -1,19 +1,29 @@
 //
-// Created by dadad on 8/16/2019.
+// Created by messenger on 8/16/2019.
 //
 
-#ifndef UNTITLED2_NODE_H
-#define UNTITLED2_NODE_H
+#ifndef NODE_H
+#define NODE_H
 
-
+/**
+ * This represents a single node in the Ai
+ */
 struct Node {
 
+    //Tells whether or not the node has been activated in the current run
     bool isActivated;
+
+    //Tells whether or not the node has been touched in the current run
     bool isTouched;
+
+    //Tells at what strength of signal the node should be activated
     float activationWeight;
+
+    //Tells the maximum activation weight the node is allowed to have
     float maxWeight;
+
+    //tells the current weight against the signal the node currently has
     float weight;
 };
 
-
-#endif //UNTITLED2_NODE_H
+#endif //NODE_H
