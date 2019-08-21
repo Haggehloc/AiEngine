@@ -6,19 +6,21 @@
 #define AISPEAKER_H
 
 
+#include <vector>
+
 class AiSpeaker {
 public:
     static AiSpeaker* instance();
-    static void processInput(float[]);
+    static void processInput(std::vector<float>);
     static bool getIsReady();
-    static float* getInput();
+    static std::vector<float> getInput();
 
 private:
     AiSpeaker();
     static bool isReady;
 
     static AiSpeaker* aiSpeakerInstance;
-    static float inputValues[];
+    static std::vector<float> inputValues;
 
 };
 

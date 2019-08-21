@@ -8,7 +8,7 @@
 #include <zconf.h>
 #include "../AiSpeaker/AiSpeaker.h"
 
-float* inputProcessor(){
+std::vector<float> inputProcessor(){
 
     while(!AiSpeaker::getIsReady()){
         //doNothing, wait for input

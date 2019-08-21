@@ -4,8 +4,13 @@
 
 #include "AiSpeaker.h"
 
-bool isReady = false;
+bool AiSpeaker::isReady = false;
+std::vector<float> AiSpeaker::inputValues;
+AiSpeaker* AiSpeaker::aiSpeakerInstance;
 
+AiSpeaker::AiSpeaker(){
+    //use defaults
+}
 
 AiSpeaker *AiSpeaker::instance() {
     if (!aiSpeakerInstance)
@@ -14,9 +19,9 @@ AiSpeaker *AiSpeaker::instance() {
     return aiSpeakerInstance;
 }
 
-void AiSpeaker::processInput(float input[]) {
-    for(int i=0; i<sizeof(input); i++ ){
-        inputValues[i] = input[i];
+void AiSpeaker::processInput(std::vector<float> inputs) {
+    for(auto input: inputs){
+        inputValues.push_back(input);
     }
 
     isReady = true;
@@ -26,6 +31,6 @@ bool AiSpeaker::getIsReady() {
     return isReady;
 }
 
-float* AiSpeaker::getInput(){
+std::vector<float> AiSpeaker::getInput(){
     return inputValues;
 }

@@ -18,11 +18,12 @@
 void Engine(float initialActivationWeight, float maxWeight, float initialWeight, int layers, int layerSize[]) {
     bool isRunning = true;
     EngineState state = INIT;
+    Brain* brain;
 
     while (isRunning) {
         switch (state) {
             case INIT: {
-                initializationProcessor(initialActivationWeight, maxWeight, initialWeight, layers, layerSize);
+                brain = initializationProcessor(initialActivationWeight, maxWeight, initialWeight, layers, layerSize);
                 state = LISTEN;
             }
             case LISTEN: {
