@@ -6,7 +6,8 @@
 #define ENGINESTATE_H
 
 enum EngineState{
-    INIT
+    INIT,
+    LISTEN
 };
 
 #endif //ENGINESTATE_H

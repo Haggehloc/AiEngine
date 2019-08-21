@@ -8,13 +8,14 @@
 #ifndef INITIALIZATIONPROCESSOR_H
 #define INITIALIZATIONPROCESSOR_H
 
-Brain initializationProcessor(float initialActivationWeight, float maxWeight, float initialWeight, int layers, int layerSize[]){
+Brain initializationProcessor(float initialActivationWeight, float maxWeight, float initialWeight, int layers,
+                              int layerSize[]) {
     Brain newBrain;
     Layer layer;
     Node node;
 
-    for(int i=0;i<layers;i++){
-        for(int j=0;j<layerSize[i];j++){
+    for (int i = 0; i < layers; i++) {
+        for (int j = 0; j < layerSize[i]; j++) {
             node = createNode(initialActivationWeight, maxWeight, initialWeight);
             layer.node[j] = node;
         }
@@ -22,7 +23,6 @@ Brain initializationProcessor(float initialActivationWeight, float maxWeight, fl
     }
 
     return newBrain;
-
 }
 
 #endif //INITIALIZATIONPROCESSOR_H
