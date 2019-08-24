@@ -12,8 +12,8 @@ struct Layer{
     std::vector<Node> node;
 };
 
-void addNode(Layer* layer, Node node){
-    layer->node.push_back(node);
+void addNode(Layer &layer, Node node){
+    layer.node.push_back(node);
 }
 
 #endif //LAYER_H

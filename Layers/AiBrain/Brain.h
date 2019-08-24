@@ -12,7 +12,7 @@ struct Brain{
     std::vector<Layer*> layer;
 };
 
-void addLayer(Brain* brain, Layer* layer){
-    brain->layer.push_back(layer);
+void addLayer(Brain *brain){
+    brain->layer.push_back(new Layer());
 }
 #endif //BRAIN_H

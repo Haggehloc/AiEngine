@@ -7,7 +7,8 @@
 
 enum EngineState{
     INIT,
-    LISTEN
+    LISTEN,
+    SHUTDOWN
 };
 
 #endif //ENGINESTATE_H

@@ -12,18 +12,41 @@
 
 
 namespace AiEngine {
+    enum LogLevel {
+        trace,
+        debug,
+        info,
+        warn,
+        err,
+        critical,
+        off
+    };
+
     class Log {
     public:
-        static void init();
+        static Log* instance();
 
-        inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() {return s_CoreLogger;}
-        inline static std::shared_ptr<spdlog::logger>& GetClientLogger() {return s_ClientLogger;}
+
+        void getCoreLogger(LogLevel, std::string);
+
+        void getClientLogger(LogLevel, std::string);
+
+        static std::shared_ptr<spdlog::logger> s_CoreLogger;
+        static std::shared_ptr<spdlog::logger> s_ClientLogger;
 
     private:
-        static std::shared_ptr<spdlog::logger>& s_CoreLogger;
-        static std::shared_ptr<spdlog::logger>& s_ClientLogger;
+        void init();
+
+
+
+        static Log* logger;
 
     };
+
+
 }
+
+extern AiEngine::Log logger;
+
 
 #endif //UNTITLED2_LOG_H

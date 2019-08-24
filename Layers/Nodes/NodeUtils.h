@@ -6,6 +6,7 @@
 #define UNTITLED2_NODEUTILS_H
 
 #include "Node.h"
+#include "../../AiLogger/Log.h"
 
 /**
  * Creates a node and returns it for use
@@ -24,6 +25,15 @@ Node createNode(float initialActivationWeight, float maxWeight, float initialWei
 
     return node;
 };
+
+std::string toString(Node node){
+    std::stringstream stringStream;
+    stringStream << "Node{\"isTouched\":\"" << node.isTouched << "\",\"weight\":\""
+    << node.weight << "\",\"maxWeight\":\"" << node.maxWeight << "\",\"activationWeight\":\""
+    << node.activationWeight << "\",\"isActivated\":\"" << node.isActivated << "\"}";
+
+    return stringStream.str();
+}
 
 void processNode(Node* node, bool success){
 
